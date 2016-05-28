@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt-get install \
+apt-get install \
     php-fpm \
     php-mysql \
     php-mcrypt \
