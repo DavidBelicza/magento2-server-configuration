@@ -30,8 +30,6 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         chmod u+x bin/magento
 
         SITE=/etc/nginx/sites-available/$2
-        SCRIPT=$(readlink -f "$0")
-        SCRIPT_PATH=$(dirname "$SCRIPT")
         curl https://raw.githubusercontent.com/DoveID/magento2-server-configuration/master/config/nginx-site > $SITE
 
         sed -i -e "s/mywebshop.com/$2/g" $SITE
