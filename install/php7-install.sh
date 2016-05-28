@@ -14,4 +14,8 @@ apt-get install \
     php-dev \
     php-common \
     php-soap \
+    php-mbstring \
+    php-zip \
     --yes
+
+service php7.0-fpm restart
