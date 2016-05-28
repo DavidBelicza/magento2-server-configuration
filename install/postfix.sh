@@ -2,18 +2,23 @@
 
 if [ $1 ];
     then
-        sudo apt-get install postfix
-        sudo apt-get install mailutils
+        debconf-set-selections <<< "postfix postfix/mailname string $1"
+        debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
+
+        apt-get install \
+            postfix \
+            mailutils \
+            --yes
 
         echo "root,www-data   info@$1" >> /etc/postfix/virtual
 
-        curl https://github.com/ > /etc/postfix/main.cf
+        curl https://raw.githubusercontent.com/DoveID/magento2-server-configuration/master/config/postfix-config > /etc/postfix/main.cf
         sed -i -e "s/mywebshop.com/$1/g" /etc/postfix/main.cf
 
-        sudo postmap /etc/postfix/virtual
+        postmap /etc/postfix/virtual
 
-        sudo service postfix reload
-        sudo service postfix restart
+        service postfix reload
+        service postfix restart
     else
         echo "";
         echo "1st parameter is magento domain";
