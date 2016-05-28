@@ -2,12 +2,12 @@
 # This file is: /etc/nginx/sites-available/mywebshop
 #
 # Create this file on the server
-# sudo nano /etc/nginx/sites-available/mywebshop
+# sudo nano /etc/nginx/sites-available/mywebshop.com
 #
 # Copy and paste this file content
 #
 # Enable the site
-# sudo ln -s /etc/nginx/sites-available/mywebshop /etc/nginx/sites-enabled/
+# sudo ln -s /etc/nginx/sites-available/mywebshop.com /etc/nginx/sites-enabled/
 #
 # Reload the Nginx configuration
 # sudo service nginx reload
@@ -26,7 +26,7 @@ server {
    listen 80;
    server_name mywebshop.com;
 
-   set $MAGE_ROOT /var/www/html/mywebshop/webroot;
+   set $MAGE_ROOT /var/www/html/mywebshop.com/webroot;
    set $MAGE_MODE developer;
 
    root $MAGE_ROOT;

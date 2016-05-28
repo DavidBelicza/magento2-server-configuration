@@ -5,5 +5,3 @@ apt-get install \
     curl \
     unzip \
     --yes
-
-apt-get install expect --yes
