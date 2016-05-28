@@ -37,7 +37,7 @@ ADMIN_LOGIN_PASS=$(awk -F "=" '/admin_login_pass/ {print $2}' install.ini)
 ADMIN_EMAIL=$(awk -F "=" '/admin_email/ {print $2}' install.ini)
 INSTALL_BASICS=$(awk -F "=" '/install_basics/ {print $2}' install.ini)
 INSTALL_NGINX=$(awk -F "=" '/install_nginx/ {print $2}' install.ini)
-ISNTALL_MYSQL=$(awk -F "=" '/isntall_mysql/ {print $2}' install.ini)
+INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
@@ -48,74 +48,100 @@ MAGENTO_DEPENDENCY_INJECTION=$(awk -F "=" '/magento_dependency_injection/ {print
 MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.ini)
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
 
+$WAIT = 10;
+
 if [ $INSTALL_BASICS == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: BASIC LINUX PACKAGES"
+        sleep $WAIT
         bash install/basics.sh
 fi;
 
 if [ $INSTALL_NGINX == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: NGINX WEB-SERVER"
+        sleep $WAIT
         bash install/nginx.sh
 fi;
 
-if [ $ISNTALL_MYSQL == "yes" ];
+if [ $INSTALL_MYSQL == "yes" ];
     then
+        echo ""
         echo "INSTALLATION AND CONFIGURATION: MYSQL DATABASE AND SERVER"
+        sleep $WAIT
         bash install/mysql.sh $DATABASE_NAME $DATABASE_PASS
 fi;
 
 if [ $INSTALL_PHP == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: FULL PHP 7"
+        sleep $WAIT
         bash install/php7.sh
 fi;
 
 if [ $INSTALL_MAILER == "yes" ];
     then
+        echo ""
         echo "INSTALLATION AND CONFIGURATION: POSTFIX EMAIL SENDER"
+        sleep $WAIT
         bash install/postfix.sh $DOMAIN
 fi;
 
 if [ $INSTALL_COMPOSER == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: COMPOSER FOR PHP"
+        sleep $WAIT
         bash install/composer.sh
 fi;
 
 if [ $SWAPING_SETTINGS == "yes" ];
     then
+        echo ""
         echo "SETUP: LINUX SWAP MEMORY FOR UBUNTU 16"
+        sleep $WAIT
         bash install/swap.sh
-fi;
-
-if [ $MAGENTO_CONNECT_KEY_STORING == "yes" ];
-    then
-        echo "CONFIGURATION: MAGENTO CONNECT KEYS"
-        bash install/auth-json.sh $DOMAIN $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY
 fi;
 
 if [ $MAGENTO_WEBSERVER_CONFIG == "yes" ];
     then
+        echo ""
         echo "CONFIGURATION: NGINX FOR MAGENTO 2"
+        sleep $WAIT
         bash install/magento-prepare.sh $MAGENTO_RELEASE $DOMAIN $LINUX_MAGENTO_USER_NAME $LINUX_MAGENTO_USER_PASS
+fi;
+
+if [ $MAGENTO_CONNECT_KEY_STORING == "yes" ];
+    then
+        echo ""
+        echo "CONFIGURATION: MAGENTO CONNECT KEYS"
+        sleep $WAIT
+        bash install/auth-json.sh $DOMAIN $MAGENTO_CONNECT_PUBLIC_KEY $MAGENTO_CONNECT_PRIVATE_KEY
 fi;
 
 if [ $MAGENTO_DEPENDENCY_INJECTION == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: MAGENTO 2 COMPOSER PROJECT"
+        sleep $WAIT
         bash install/magento-injection.sh $DOMAIN
 fi;
 
 if [ $MAGENTO_INSTALLATION == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: THE MAGENTO 2"
-        bash install/magento-isntall.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE
+        sleep $WAIT
+        bash install/magento-install.sh $DOMAIN $BASE_URL $DATABASE_HOST $DATABASE_NAME $DATABASE_USER $DATABASE_PASS $ADMIN_EMAIL $ADMIN_LOGIN_NAME $ADMIN_LOGIN_PASS $LANGUAGE_CODE $CURRENCY_CODE
 fi;
 
 if [ $MAGENTO_SAMPLE_DATA_INSTALLATION == "yes" ];
     then
+        echo ""
         echo "INSTALLATION: MAGENTO 2 SAMPLE DATA DEMO STORE"
+        sleep $WAIT
         bash install/magento-sample.sh $DOMAIN $LANGUAGE_CODE
 fi;
