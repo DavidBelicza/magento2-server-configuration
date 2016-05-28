@@ -48,7 +48,7 @@ MAGENTO_DEPENDENCY_INJECTION=$(awk -F "=" '/magento_dependency_injection/ {print
 MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.ini)
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
 
-WAIT = 10;
+WAIT=10;
 
 if [ $INSTALL_BASICS == "yes" ];
     then
