@@ -20,3 +20,19 @@ To install Magento, first fill out the install.ini file then run the command "su
 * Set your user names and passwords: `nano install.ini` or `gedit install.ini`
 * Run the installer: `sudo bash install.sh`
 * Now, you have an installed **Magento 2** prepared to development
+
+## After Installation
+
+The installation process created the Magento Linux User automatically, so you can login as Magento and use Magento's commands:
+* `cd /var/www/html/mywebshop.com/webroot`
+* `su magento`
+* `php bin/magento`
+
+If you have any permission issues use the following commands:
+* `cd /var/www/html/mywebshop.com/webroot`
+* `chown -R :www-data .`
+* `find . -type d -exec chmod 770 {} \;`
+* `find . -type f -exec chmod 660 {} \;`
+* `chmod u+x bin/magento`
+
+
