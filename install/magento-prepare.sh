@@ -4,7 +4,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
     then
         sudo adduser $3 --gecos "Magento System,0,0,0" --disabled-password
         echo "$3:$4" | sudo chpasswd
-        usermod -g www-data magento
+        usermod -g www-data $3
 
         mkdir /var/www/html/$2
         mkdir /var/www/html/$2/webroot
