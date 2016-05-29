@@ -16,6 +16,11 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
 
         php bin/magento cache:clean
         php bin/magento cache:flush
+        
+        chown -R :www-data .
+        find . -type d -exec chmod 770 {} \;
+        find . -type f -exec chmod 660 {} \;
+        chmod u+x bin/magento
     else
         echo "";
         echo "1st parameter is magento domain";
