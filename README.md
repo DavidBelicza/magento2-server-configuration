@@ -1,4 +1,4 @@
-# Magento 2 Automatized Server Configuratior
+# Magento 2 Automatized Server Configurator
 
 This script installs the Magento and its server environment. It installs **Nginx**, **PHP7**, **MySQL**, **Postfix**, **Composer**, **Magento 2**, **Magento sample data** and all
 required packages and dependencies. It also set the **Linux swapping** and **Vhost configuration**.
