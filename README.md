@@ -39,3 +39,7 @@ If you have any permission issues use the following commands:
 
 [![Magento 2 Installation - Full Server: Nginx, MySQL, PHP7, Sample Data](http://img.youtube.com/vi/Z34udaRg4mE/0.jpg)](http://www.youtube.com/watch?v=Z34udaRg4mE)
 
+## Articles
+
+Article about Magento 2 and Server installation in Hungarian: [Magento Propaganda](http://youama.hu)
+
