@@ -41,5 +41,5 @@ If you have any permission issues use the following commands:
 
 ## Articles
 
-Article about Magento 2 and Server installation in Hungarian: [Magento Propaganda](http://youama.hu)
+Article about Magento 2 and Server installation in Hungarian: [Magento Propaganda](http://youama.hu/magento-propaganda/telepites-fejleszteshez-magento-2)
 
