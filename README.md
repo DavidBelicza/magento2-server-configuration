@@ -35,4 +35,7 @@ If you have any permission issues use the following commands:
 * `find . -type f -exec chmod 660 {} \;`
 * `chmod u+x bin/magento`
 
+## Installation Demo
+
+[![Magento 2 Installation - Full Server: Nginx, MySQL, PHP7, Sample Data](http://img.youtube.com/vi/Z34udaRg4mE/0.jpg)](http://www.youtube.com/watch?v=Z34udaRg4mE)
 
