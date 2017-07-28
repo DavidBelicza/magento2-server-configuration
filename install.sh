@@ -41,6 +41,7 @@ INSTALL_APACHE=$(awk -F "=" '/install_apache/ {print $2}' install.ini)
 INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
+INSTALL_CERTBOT=$(awk -F "=" '/install_certbot/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
 INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
 SWAPING_SETTINGS=$(awk -F "=" '/swaping_settings/ {print $2}' install.ini)
@@ -100,6 +101,14 @@ if [ $INSTALL_MAILER == "yes" ];
         echo "INSTALLATION AND CONFIGURATION: POSTFIX EMAIL SENDER"
         sleep $WAIT
         bash install/postfix.sh $DOMAIN
+fi;
+
+if [ $INSTALL_CERTBOT == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: CERTBOT"
+        sleep $WAIT
+        bash install/certbot.sh
 fi;
 
 if [ $INSTALL_COMPOSER == "yes" ];
