@@ -37,10 +37,13 @@ ADMIN_LOGIN_PASS=$(awk -F "=" '/admin_login_pass/ {print $2}' install.ini)
 ADMIN_EMAIL=$(awk -F "=" '/admin_email/ {print $2}' install.ini)
 INSTALL_BASICS=$(awk -F "=" '/install_basics/ {print $2}' install.ini)
 INSTALL_NGINX=$(awk -F "=" '/install_nginx/ {print $2}' install.ini)
+INSTALL_APACHE=$(awk -F "=" '/install_apache/ {print $2}' install.ini)
 INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
+INSTALL_CERTBOT=$(awk -F "=" '/install_certbot/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
+INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
 SWAPING_SETTINGS=$(awk -F "=" '/swaping_settings/ {print $2}' install.ini)
 MAGENTO_CONNECT_KEY_STORING=$(awk -F "=" '/magento_connect_key_storing/ {print $2}' install.ini)
 MAGENTO_WEBSERVER_CONFIG=$(awk -F "=" '/magento_webserver_config/ {print $2}' install.ini)
@@ -48,7 +51,9 @@ MAGENTO_DEPENDENCY_INJECTION=$(awk -F "=" '/magento_dependency_injection/ {print
 MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.ini)
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
 
-WAIT=6;
+WAIT=$(awk -F "=" '/wait/ {print $2}' install.ini)
+
+apt-get update
 
 if [ $INSTALL_BASICS == "yes" ];
     then
@@ -64,6 +69,14 @@ if [ $INSTALL_NGINX == "yes" ];
         echo "INSTALLATION: NGINX WEB-SERVER"
         sleep $WAIT
         bash install/nginx.sh
+fi;
+
+if [ $INSTALL_APACHE == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: APACHE WEB-SERVER"
+        sleep $WAIT
+        bash install/apache.sh
 fi;
 
 if [ $INSTALL_MYSQL == "yes" ];
@@ -90,12 +103,28 @@ if [ $INSTALL_MAILER == "yes" ];
         bash install/postfix.sh $DOMAIN
 fi;
 
+if [ $INSTALL_CERTBOT == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: CERTBOT"
+        sleep $WAIT
+        bash install/certbot.sh
+fi;
+
 if [ $INSTALL_COMPOSER == "yes" ];
     then
         echo ""
         echo "INSTALLATION: COMPOSER FOR PHP"
         sleep $WAIT
         bash install/composer.sh
+fi;
+
+if [ $INSTALL_REDIS == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: REDIS"
+        sleep $WAIT
+        bash install/redis.sh
 fi;
 
 if [ $SWAPING_SETTINGS == "yes" ];

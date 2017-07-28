@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 apt-get install \
-    nginx \
+    apache2 \
     --yes
 
-service nginx restart
+service apache2 restart

@@ -12,4 +12,3 @@ if [ $1 ] && [ $2 ] && [ $3 ];
         echo "Try this: auth-json.sh magento.com 123456789 123456789"
         echo ""
 fi;
-
