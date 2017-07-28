@@ -37,6 +37,7 @@ ADMIN_LOGIN_PASS=$(awk -F "=" '/admin_login_pass/ {print $2}' install.ini)
 ADMIN_EMAIL=$(awk -F "=" '/admin_email/ {print $2}' install.ini)
 INSTALL_BASICS=$(awk -F "=" '/install_basics/ {print $2}' install.ini)
 INSTALL_NGINX=$(awk -F "=" '/install_nginx/ {print $2}' install.ini)
+INSTALL_APACHE=$(awk -F "=" '/install_apache/ {print $2}' install.ini)
 INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
@@ -64,6 +65,14 @@ if [ $INSTALL_NGINX == "yes" ];
         echo "INSTALLATION: NGINX WEB-SERVER"
         sleep $WAIT
         bash install/nginx.sh
+fi;
+
+if [ $INSTALL_APACHE == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: APACHE WEB-SERVER"
+        sleep $WAIT
+        bash install/apache.sh
 fi;
 
 if [ $INSTALL_MYSQL == "yes" ];
