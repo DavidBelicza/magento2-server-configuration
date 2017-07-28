@@ -41,6 +41,7 @@ INSTALL_MYSQL=$(awk -F "=" '/install_mysql/ {print $2}' install.ini)
 INSTALL_PHP=$(awk -F "=" '/install_php/ {print $2}' install.ini)
 INSTALL_MAILER=$(awk -F "=" '/install_mailer/ {print $2}' install.ini)
 INSTALL_COMPOSER=$(awk -F "=" '/install_composer/ {print $2}' install.ini)
+INSTALL_REDIS=$(awk -F "=" '/install_redis/ {print $2}' install.ini)
 SWAPING_SETTINGS=$(awk -F "=" '/swaping_settings/ {print $2}' install.ini)
 MAGENTO_CONNECT_KEY_STORING=$(awk -F "=" '/magento_connect_key_storing/ {print $2}' install.ini)
 MAGENTO_WEBSERVER_CONFIG=$(awk -F "=" '/magento_webserver_config/ {print $2}' install.ini)
@@ -49,6 +50,8 @@ MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.in
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
 
 WAIT=6;
+
+apt-get update
 
 if [ $INSTALL_BASICS == "yes" ];
     then
@@ -96,6 +99,14 @@ if [ $INSTALL_COMPOSER == "yes" ];
         echo "INSTALLATION: COMPOSER FOR PHP"
         sleep $WAIT
         bash install/composer.sh
+fi;
+
+if [ $INSTALL_REDIS == "yes" ];
+    then
+        echo ""
+        echo "INSTALLATION: REDIS"
+        sleep $WAIT
+        bash install/redis.sh
 fi;
 
 if [ $SWAPING_SETTINGS == "yes" ];
