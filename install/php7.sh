@@ -16,6 +16,8 @@ apt-get install \
     php-soap \
     php-mbstring \
     php-zip \
+    php7.0-bcmath \
+    php-imagick \
     --yes
 
 service php7.0-fpm restart
