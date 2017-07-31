@@ -10,4 +10,3 @@ if [ $1 ];
         echo "Try this: magento-injection.sh mywebshop.com";
         echo "";
 fi;
-

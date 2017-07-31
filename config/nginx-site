@@ -197,4 +197,3 @@ server {
        deny all;
    }
 }
-
