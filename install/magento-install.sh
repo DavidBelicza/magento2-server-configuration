@@ -16,7 +16,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
 
         php bin/magento cache:clean
         php bin/magento cache:flush
-        
+
         chown -R :www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
@@ -37,4 +37,3 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         echo "Try this: magento-install.sh mywebshop.com http://mywebshop.com/ localhost magento root secret123 admin@mywebshop.com admin admin123 en_US USD";
         echo "";
 fi;
-

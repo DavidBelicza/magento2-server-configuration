@@ -24,4 +24,3 @@ if [ $1 ] && [ $2 ];
         echo "Try this: magento-sample.sh mywebshop.com";
         echo "";
 fi;
-

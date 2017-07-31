@@ -25,4 +25,3 @@ if [ $1 ];
         echo "Try this: postfix.sh mywebshop.com";
         echo "";
 fi;
-
