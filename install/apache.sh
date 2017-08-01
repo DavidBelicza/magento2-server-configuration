@@ -6,7 +6,9 @@ apt-get install \
     --yes
 
 a2enmod \
+    rewrite \
     fastcgi \
+    proxy \
     proxy_fcgi \
     alias \
     actions
