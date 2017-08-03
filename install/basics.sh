@@ -5,4 +5,5 @@ apt-get install \
     curl \
     unzip \
     vim \
+    fail2ban \
     --yes
