@@ -14,6 +14,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
 
         cd /var/www/html
         rm -rf /var/www/html/$2/webroot/*
+        rm -rf /var/www/html/$2/webroot/.*
 
         cd /var/www/html/$2/webroot
         chown -R :www-data .

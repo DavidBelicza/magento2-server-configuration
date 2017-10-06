@@ -4,7 +4,6 @@ if [ $1 ] && [ $2 ];
     then
         cd /var/www/html/$1/webroot
         composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition . $2
-        composer update
     else
         echo "";
         echo "1st parameter is magento domain";

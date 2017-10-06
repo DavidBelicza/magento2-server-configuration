@@ -15,6 +15,8 @@ if [ $1 ] && [ $2 ];
             SHOW DATABASES;
 EOF
 
+        service mysql start
+
     else
         echo "Missing parameters.";
         echo "1st parameter is MySQL Magento database";
