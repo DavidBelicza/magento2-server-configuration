@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-if [ $1 ];
+if [ $1 ] && [ $2 ];
     then
         cd /var/www/html/$1/webroot
-        composer install
+        composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition . $2
+        composer update
     else
         echo "";
         echo "1st parameter is magento domain";
+        echo "2st parameter is magento release";
         echo "Try this: magento-injection.sh mywebshop.com";
         echo "";
 fi;
