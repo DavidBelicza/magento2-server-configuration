@@ -12,16 +12,9 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
 
         echo "Download Magento $1 release"
 
-        mkdir ~/temp
-        cd ~/temp
-        wget https://github.com/magento/magento2/archive/$1.zip
-        DOWNLOADED_ZIP=$(ls -t *.zip | head -1)
-        unzip -o $DOWNLOADED_ZIP -d /var/www/html
         cd /var/www/html
-        RELEASE_FOLDER="magento2-"$1
         rm -rf /var/www/html/$2/webroot/*
-        mv /var/www/html/$RELEASE_FOLDER/* /var/www/html/$2/webroot/
-        rm -rf /var/www/html/$RELEASE_FOLDER
+        rm -rf /var/www/html/$2/webroot/.*
 
         cd /var/www/html/$2/webroot
         chown -R :www-data .
@@ -30,7 +23,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ];
         chmod u+x bin/magento
 
         SITE=/etc/nginx/sites-available/$2
-        curl https://raw.githubusercontent.com/DoveID/magento2-server-configuration/master/config/nginx-site > $SITE
+        curl https://raw.githubusercontent.com/DavidBelicza/magento2-server-configuration/master/config/nginx-site > $SITE
 
         sed -i -e "s/mywebshop.com/$2/g" $SITE
         ln -s /etc/nginx/sites-available/$2 /etc/nginx/sites-enabled/

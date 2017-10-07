@@ -5,6 +5,7 @@ if [ $1 ] && [ $2 ];
         cd /var/www/html/$1/webroot
 
         php bin/magento sampledata:deploy
+        export COMPOSER_HOME=/var/www/html/$1/composer
         composer update
         php bin/magento setup:upgrade
 

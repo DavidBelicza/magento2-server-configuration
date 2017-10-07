@@ -7,6 +7,8 @@ if [ $1 ] && [ $2 ];
 
         apt-get install mysql-server --yes
 
+        service mysql start
+
         mysql -u root --password="$2" << EOF
             DELETE FROM mysql.user WHERE User='';
             DROP DATABASE IF EXISTS test;

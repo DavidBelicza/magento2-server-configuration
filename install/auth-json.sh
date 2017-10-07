@@ -2,8 +2,9 @@
 
 if [ $1 ] && [ $2 ] && [ $3 ];
     then
-        rm /var/www/html/$1/webroot/auth.json
-        echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$2"\", \"password\":\""$3"\"}}}" >> /var/www/html/$1/webroot/auth.json
+        rm /var/www/html/$1/composer/auth.json
+        mkdir /var/www/html/$1/composer
+        echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$2"\", \"password\":\""$3"\"}}}" >> /var/www/html/$1/composer/auth.json
     else
         echo ""
         echo "1st parameter is magento domain";

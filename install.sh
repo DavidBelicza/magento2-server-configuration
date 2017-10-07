@@ -156,7 +156,7 @@ if [ $MAGENTO_DEPENDENCY_INJECTION == "yes" ];
         echo ""
         echo "INSTALLATION: MAGENTO 2 COMPOSER PROJECT"
         sleep $WAIT
-        bash install/magento-injection.sh $DOMAIN
+        bash install/magento-injection.sh $DOMAIN $MAGENTO_RELEASE
 fi;
 
 if [ $MAGENTO_INSTALLATION == "yes" ];
