@@ -14,7 +14,6 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         php bin/magento cache:disable
         php bin/magento cache:clean
         php bin/magento cache:flush
-        php bin/magento setup:config:set --backend-frontname=admin
 
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
