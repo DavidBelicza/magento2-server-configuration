@@ -11,13 +11,17 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         --currency=${11} --timezone=America/Chicago --use-rewrites=1
 
         php bin/magento deploy:mode:set developer
+        php bin/magento cache:disable
         php bin/magento cache:clean
         php bin/magento cache:flush
+        php bin/magento setup:config:set --backend-frontname=admin
 
-        chown -R :www-data .
         find . -type d -exec chmod 770 {} \;
         find . -type f -exec chmod 660 {} \;
         chmod u+x bin/magento
+        chown -R :www-data .
+
+        service php7.0-fpm restart
     else
         echo "";
         echo "1st parameter is magento domain";
