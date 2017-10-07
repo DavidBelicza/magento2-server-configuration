@@ -10,10 +10,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         --admin-user=$8 --admin-password=$9 --language=${10} \
         --currency=${11} --timezone=America/Chicago --use-rewrites=1
 
-        php bin/magento setup:upgrade
-
-        php bin/magento setup:static-content:deploy ${10}
-
+        php bin/magento deploy:mode:set developer
         php bin/magento cache:clean
         php bin/magento cache:flush
 
