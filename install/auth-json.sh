@@ -4,7 +4,6 @@ if [ $1 ] && [ $2 ] && [ $3 ];
     then
         rm /var/www/html/$1/composer/auth.json
         mkdir /var/www/html/$1/composer
-        export COMPOSER_HOME=/var/www/html/$1/composer
         echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$2"\", \"password\":\""$3"\"}}}" >> /var/www/html/$1/composer/auth.json
     else
         echo ""
