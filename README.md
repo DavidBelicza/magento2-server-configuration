@@ -16,7 +16,7 @@ To install Magento, first fill out the install.ini file then run the command "su
 * Get an Ubuntu 16
 * Update it: `sudo apt-get update`
 * Install git: `sudo apt-get install git`
-* Download this isntaller: `git clone https://github.com/DavidBelicza/magento2-server-configuration.git`
+* Download this installer: `git clone https://github.com/DavidBelicza/magento2-server-configuration.git`
 * Set your user names and passwords: `nano install.ini` or `gedit install.ini`
 * Run the installer: `sudo bash install.sh`
 * Now, you have an installed **Magento 2** prepared to development
