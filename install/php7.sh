@@ -7,7 +7,7 @@ apt-get install \
     php-curl \
     php-cli \
     php-gd \
-    php7.0-xsl \
+    php7.2-xsl \
     php-json \
     php-intl \
     php-pear \
@@ -16,8 +16,8 @@ apt-get install \
     php-soap \
     php-mbstring \
     php-zip \
-    php7.0-bcmath \
+    php7.2-bcmath \
     php-imagick \
     --yes
 
-service php7.0-fpm restart
+service php7.2-fpm restart

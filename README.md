@@ -7,13 +7,13 @@ This script makes ready Magento 2 to work for development and sets a single one 
 
 This Magento environment fine for module and template development and Magento core contribution development
 
-Pre-requirements: Ubuntu 16 with Internet connection.
+Pre-requirements: Ubuntu 18.04 with Internet connection.
 
 To install Magento, first fill out the install.ini file then run the command "sudo bash install.sh"
 
 ## Guide
 
-* Get an Ubuntu 16
+* Get an Ubuntu 18.04
 * Update it: `sudo apt-get update`
 * Install git: `sudo apt-get install git`
 * Download this installer: `git clone https://github.com/DavidBelicza/magento2-server-configuration.git`
