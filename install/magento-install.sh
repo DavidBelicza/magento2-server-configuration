@@ -20,7 +20,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         chmod u+x bin/magento
         chown -R :www-data .
 
-        service php7.0-fpm restart
+        service php7.2-fpm restart
     else
         echo "";
         echo "1st parameter is magento domain";

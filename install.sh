@@ -11,7 +11,7 @@
 # This Magento environment fine for module and template development and Magento
 # core contribution development.
 #
-# Pre-requirements: Ubuntu 16 with Internet connection.
+# Pre-requirements: Ubuntu 18.04 with Internet connection.
 #
 # To install Magento, first fill out the install.ini file then run the command
 # "sudo bash install.sh"
@@ -130,7 +130,7 @@ fi;
 if [ $SWAPING_SETTINGS == "yes" ];
     then
         echo ""
-        echo "SETUP: LINUX SWAP MEMORY FOR UBUNTU 16"
+        echo "SETUP: LINUX SWAP MEMORY FOR UBUNTU 18.04"
         sleep $WAIT
         bash install/swap.sh
 fi;
